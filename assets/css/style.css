@@ -180,6 +180,25 @@ p { margin: 0 0 1em; }
 .cards.filtering .card { opacity: .4; }
 .cards.filtering .card.match { opacity: 1; border-color: var(--c); transform: translateY(-4px); }
 
+/* Activiteiten */
+.highlights { display: grid; gap: 18px; margin-top: 32px; }
+@media (min-width: 640px) { .highlights { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px) { .highlights { grid-template-columns: repeat(4, 1fr); } }
+.highlight { background: var(--card); border-radius: var(--radius); padding: 24px; border: 1px solid var(--line); border-left: 8px solid var(--c); }
+.highlight p { color: var(--muted); margin: 0; }
+
+.gallery {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;
+  margin: 48px auto 32px; max-width: 1280px; padding: 0 16px;
+}
+@media (min-width: 720px) { .gallery { grid-template-columns: repeat(4, 1fr); gap: 10px; } }
+.gallery img {
+  width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px;
+  transition: transform .2s;
+}
+.gallery img:hover { transform: scale(1.02); }
+.center { text-align: center; }
+
 /* Info */
 .info-grid { display: grid; gap: 18px; margin-top: 32px; }
 @media (min-width: 720px) { .info-grid { grid-template-columns: repeat(2, 1fr); } }

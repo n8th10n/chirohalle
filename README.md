@@ -1,20 +1,18 @@
 # Chiro Halle website
 
-Nieuwe statische website voor [chirohalle.be](https://chirohalle.be). Geen build-stap nodig: open `index.html` of zet de map op eender welke webhost.
+Nieuwe statische website voor [chirohalle.be](https://chirohalle.be). Geen build-stap nodig: zet de bestanden op eender welke webhost.
 
 ```
 index.html
 assets/css/style.css
 assets/js/main.js
-assets/img/groepsfoto.webp
+assets/img/              foto's (webp)
+assets/docs/             geneeskundig getuigschrift (verzekering)
 ```
+
+Inschrijvingen en de agenda lopen via [MyChiro](https://www.mychiro.be/).
 
 ## Nog na te kijken
 
-Deze punten zijn nog niet bevestigd en staan als `TODO` in `index.html`:
-
-- **Afdelingen**: namen en leeftijden volgen de standaard Chiro-indeling (Ribbels t.e.m. Aspi's). Controleer of Chiro Halle dezelfde namen en indeling gebruikt.
-- **Uren**: de exacte uren van de zondagnamiddag.
-- **Lidgeld**: het bedrag.
-- **Kamp**: kampduur en -data.
-- **Adres**: het volledige adres van Jeugdcentrum Stroppen.
+- **Kamp**: de oude site vermeldde zowel 21–31 juli als 21–31 augustus. De nieuwe site toont geen data; vul ze aan zodra ze vastliggen.
+- **Inclusie**: de oude site gaf het gsm-nummer van Camille (leiding) als contact. De nieuwe site verwijst naar het groepsmailadres; voeg een contactpersoon toe als dat gewenst is.
