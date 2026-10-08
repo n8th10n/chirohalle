@@ -7,6 +7,7 @@ index.html               startpagina
 kalender.html            volledige kalender
 kalender.php             haalt de Twizzit-kalender op (iCal) en bewaart hem 12 uur
 kalender-backup.ics      reservekopie, getoond zolang Twizzit nog niets teruggaf
+privacy.html             privacyverklaring (ook als PDF in assets/docs/)
 assets/css/style.css     stijl (kleuren uit het Instagram-logo en de afdelingshighlights)
 assets/js/main.js        menu en geboortejaarzoeker
 assets/js/kalender.js    leest de kalender in en toont de komende activiteiten
