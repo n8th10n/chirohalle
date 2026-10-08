@@ -7,6 +7,11 @@
   --purple: #7b4fc9;
   --khaki: #c9b48f;
 
+  /* verloop uit de Instagram-profielfoto */
+  --brand-1: #6a3fd1;
+  --brand-2: #e0307a;
+  --brand-3: #f7931e;
+
   --bg: #fffaf0;
   --bg-tint: #f6eedd;
   --ink: #1d1a16;
@@ -72,7 +77,7 @@ p { margin: 0 0 1em; }
 .logo strong { font-weight: 800; }
 .logo-mark {
   width: 32px; height: 32px; border-radius: 50%;
-  background: conic-gradient(var(--red) 0 20%, var(--orange) 0 40%, var(--yellow) 0 60%, var(--green) 0 80%, var(--blue) 0);
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-2) 55%, var(--brand-3));
 }
 .nav { display: flex; align-items: center; gap: 1.6rem; }
 .nav a:not(.btn) { text-decoration: none; font-weight: 700; }
@@ -166,19 +171,35 @@ p { margin: 0 0 1em; }
 @media (min-width: 980px) { .cards { grid-template-columns: repeat(3, 1fr); } }
 .card {
   position: relative; background: var(--card); border-radius: var(--radius);
-  padding: 26px 24px 20px; border: 2px solid transparent; overflow: hidden;
+  border: 3px solid transparent; overflow: hidden; display: flex; flex-direction: column;
+  border-top: 10px solid var(--c);
   transition: transform .2s, border-color .2s, opacity .2s;
 }
-.card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 10px; background: var(--c); }
-.card h3 { margin-top: 6px; }
+.card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 40%; }
+.card-body { padding: 20px 22px 22px; }
+.card:not(:has(img)) { align-self: start; }
+.card h3 { margin-bottom: .35em; }
 .card .age {
   display: inline-block; font-weight: 800; font-size: .85rem;
   background: var(--c); color: #fff; padding: .2em .7em; border-radius: 999px;
 }
 .card.c-yellow .age { color: var(--ink); }
-.card p:last-child { color: var(--muted); margin-bottom: 0; }
+.card p { color: var(--muted); }
+.card .leiding { margin: 0; padding-top: 12px; border-top: 1px dashed var(--line); color: var(--ink); font-weight: 700; }
+.card .leiding span { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
 .cards.filtering .card { opacity: .4; }
 .cards.filtering .card.match { opacity: 1; border-color: var(--c); transform: translateY(-4px); }
+
+.groepsleiding {
+  display: grid; gap: 0; margin-top: 32px; background: var(--ink); color: var(--bg);
+  border-radius: var(--radius); overflow: hidden;
+}
+.groepsleiding img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 35%; }
+.groepsleiding > div { padding: clamp(24px, 4vw, 48px); align-self: center; }
+.groepsleiding .eyebrow { color: var(--yellow); }
+.groepsleiding h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.groepsleiding p:last-child { margin: 0; color: rgba(255, 250, 240, .8); }
+@media (min-width: 860px) { .groepsleiding { grid-template-columns: 1fr 1fr; } }
 
 /* Activiteiten */
 .highlights { display: grid; gap: 18px; margin-top: 32px; }
