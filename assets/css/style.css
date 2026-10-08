@@ -73,7 +73,7 @@ p { margin: 0 0 1em; }
 /* Knoppen */
 .btn {
   display: inline-block; text-decoration: none; font-family: var(--font-head); font-weight: 600;
-  font-size: 1.05rem; background: var(--brand-gradient); color: #fff;
+  font-size: 1.05rem; background: var(--brand-gradient); background-origin: border-box; color: #fff;
   padding: .75em 1.5em; border-radius: 999px; border: 2px solid transparent;
   transition: transform .15s, box-shadow .15s;
   box-shadow: 0 6px 18px rgba(166, 92, 240, .3);
@@ -367,6 +367,6 @@ p { margin: 0 0 1em; }
 .event-regular .event-month { font-size: .75rem; }
 .event-regular .event-title { font-size: 1.05rem; font-weight: 600; }
 .event-regular .event-location { display: none; }
-.event-special { border: 2px solid transparent; background: linear-gradient(var(--card), var(--card)) padding-box, var(--brand-gradient) border-box; }
+.event-special { border: 2px solid transparent; background: linear-gradient(var(--card), var(--card)) padding-box, var(--brand-gradient) border-box; background-origin: border-box; }
 .event-special .event-title { font-size: 1.4rem; }
 @media (max-width: 480px) { .event-regular { grid-template-columns: 56px 1fr; padding: 8px 14px; } }
