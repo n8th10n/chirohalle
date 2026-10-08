@@ -196,8 +196,6 @@ p { margin: 0 0 1em; }
   background: var(--g); color: #fff; padding: .2em .8em; border-radius: 999px;
 }
 .card p { color: var(--muted); }
-.card .leiding { margin: 0; padding-top: 12px; border-top: 1px dashed var(--line); color: var(--ink); font-weight: 800; }
-.card .leiding span { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 700; }
 .cards.filtering .card { opacity: .35; }
 .cards.filtering .card.match { opacity: 1; outline-color: var(--c); transform: translateY(-6px) rotate(-1deg); }
 
@@ -291,3 +289,32 @@ p { margin: 0 0 1em; }
 /* Donkere tekst op het lichte Speelclub-verloop */
 .fact.g-speelclub, .highlight.g-speelclub, .g-speelclub .age { color: var(--ink); }
 .groepsleiding .tag { color: var(--ink); }
+
+/* Leiding met citaten */
+.card .leiding { margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line); }
+.card .leiding .label { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
+.leiders { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.leiders li { background: var(--bg-tint); border-radius: 999px; padding: .15em .75em; font-weight: 800; font-size: .95rem; }
+.quote {
+  position: relative; margin: 14px 0 0; padding: 12px 16px; border-radius: 16px 16px 16px 4px;
+  background: var(--g); color: #fff; transform: rotate(-1deg);
+}
+.g-speelclub .quote { color: var(--ink); }
+.quote p { margin: 0; color: inherit; font-weight: 700; font-style: italic; }
+.quote p::before { content: "“"; }
+.quote p::after { content: "”"; }
+.quote cite { display: block; margin-top: 4px; font-style: normal; font-size: .85rem; font-weight: 800; opacity: .85; }
+.quote cite::before { content: "— "; }
+.card-body { display: flex; flex-direction: column; flex: 1; }
+
+/* Kleding */
+.kleding-grid { display: grid; gap: 18px; margin-top: 32px; }
+@media (min-width: 860px) { .kleding-grid { grid-template-columns: repeat(3, 1fr); } }
+.kleding { background: var(--card); border-radius: var(--radius); padding: 26px; border: 1px solid var(--line); border-top: 10px solid var(--c); }
+.kleding-price {
+  display: inline-block; font-family: var(--font-head); font-weight: 700; font-size: 1.3rem;
+  background: var(--g); color: #fff; padding: .15em .7em; border-radius: 999px; transform: rotate(-2deg); margin-bottom: .8em;
+}
+.kleding p:last-child { color: var(--muted); margin: 0; }
+.kleding a { color: var(--brand-red); font-weight: 800; }
+.card .age { align-self: flex-start; }
