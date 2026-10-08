@@ -1,0 +1,83 @@
+{
+  "contact": {
+    "email": "chirohallesjaloom@gmail.com",
+    "instagram": "https://www.instagram.com/chirohalle/",
+    "facebook": "https://www.facebook.com/ChiroHalle/"
+  },
+  "hero": {
+    "foto": "assets/img/groepsfoto.webp",
+    "breedte": 2000,
+    "hoogte": 1065
+  },
+  "groepsleiding": {
+    "foto": "assets/img/leiding-groepsleiding.webp",
+    "leden": [
+      { "naam": "Toon", "telefoon": "+32 479 10 59 41" },
+      { "naam": "Jade", "telefoon": "+32 456 14 67 25" },
+      { "naam": "Marie", "telefoon": "+32 475 43 40 33" }
+    ]
+  },
+  "afdelingen": [
+    {
+      "key": "speelclub", "naam": "Speelclub", "leeftijd": "6 – 9 jaar", "min": 6, "max": 8,
+      "beschrijving": "De jongste spelers. Veel spel, knutselen en verkleden, en elke zondag een nieuw avontuur.",
+      "foto": "assets/img/leiding-speelclub.webp",
+      "leiding": [
+        { "naam": "Manu", "quote": "" },
+        { "naam": "Marie", "quote": "" },
+        { "naam": "Nolan", "quote": "" },
+        { "naam": "Catho", "quote": "" }
+      ]
+    },
+    {
+      "key": "rakwi", "naam": "Rakwi's", "leeftijd": "9 – 12 jaar", "min": 9, "max": 11,
+      "beschrijving": "Ravotten in het bos, grote spelen en altijd klaar voor een uitdaging.",
+      "foto": "assets/img/leiding-rakwi.webp",
+      "leiding": [
+        { "naam": "Toon", "quote": "Ik denk dat ik al aan 25 zit, maar hoe meer hoe beter toch?" },
+        { "naam": "Febe", "quote": "" },
+        { "naam": "Léa", "quote": "" },
+        { "naam": "Lorenzo", "quote": "" }
+      ]
+    },
+    {
+      "key": "tito", "naam": "Tito's", "leeftijd": "12 – 14 jaar", "min": 12, "max": 13,
+      "beschrijving": "Meer zelf beslissen, grotere tochten en samen met je vrienden zotte plannen smeden.",
+      "foto": "assets/img/leiding-tito.webp",
+      "leiding": [
+        { "naam": "Joren", "quote": "Ik denk dat hij zo zijn zwart geld wit wast." },
+        { "naam": "Emma", "quote": "" },
+        { "naam": "Heri", "quote": "" }
+      ]
+    },
+    {
+      "key": "keti", "naam": "Keti's", "leeftijd": "14 – 16 jaar", "min": 14, "max": 15,
+      "beschrijving": "Uitdagende activiteiten en weekends die je zelf mee op poten zet.",
+      "foto": "assets/img/leiding-keti.webp",
+      "leiding": [
+        { "naam": "Joke", "quote": "" },
+        { "naam": "Mano", "quote": "" },
+        { "naam": "Rik", "quote": "" }
+      ]
+    },
+    {
+      "key": "aspi", "naam": "Aspi's", "leeftijd": "16 – 18 jaar", "min": 16, "max": 17,
+      "beschrijving": "De oudste leden. Eigen projecten en klaarstomen om zelf leiding te worden.",
+      "foto": "assets/img/leiding-aspi.webp",
+      "leiding": [
+        { "naam": "Warre", "quote": "" },
+        { "naam": "Jade", "quote": "" }
+      ]
+    }
+  ],
+  "galerij": [
+    { "foto": "assets/img/strand-groep.webp", "alt": "Een groep leden op het strand" },
+    { "foto": "assets/img/stapel.webp", "alt": "Leden liggen lachend op elkaar in het gras" },
+    { "foto": "assets/img/kabouters.webp", "alt": "Twee jongens met rode kabouterpuntmutsen" },
+    { "foto": "assets/img/kampvuur.webp", "alt": "Een groot kampvuur 's avonds" },
+    { "foto": "assets/img/lachen.webp", "alt": "Lachende kinderen met hoedjes" },
+    { "foto": "assets/img/rode-muts.webp", "alt": "Een jongen met een rode puntmuts en een groen T-shirt" },
+    { "foto": "assets/img/strand-trio.webp", "alt": "Drie leden op het strand" },
+    { "foto": "assets/img/kring.webp", "alt": "Kinderen zitten samen in het gras" }
+  ]
+}

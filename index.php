@@ -1,3 +1,10 @@
+<?php
+require __DIR__ . '/includes/site.php';
+$c = content_load();
+$gl = $c['groepsleiding'];
+$glNamen = names_join(array_column($gl['leden'], 'naam'));
+$glTel = array_values(array_filter($gl['leden'], function ($l) { return trim($l['telefoon'] ?? '') !== ''; }));
+?>
 <!doctype html>
 <html lang="nl">
 <head>
@@ -68,8 +75,8 @@
       </div>
     </div>
     <div class="hero-photo">
-      <img src="assets/img/groepsfoto.webp" width="2000" height="1065"
-           alt="De leiding van Chiro Halle in de kleuren van hun afdeling, arm in arm, met een grote knuffelkonijn">
+      <img src="<?= e($c['hero']['foto']) ?>" width="<?= (int) $c['hero']['breedte'] ?>" height="<?= (int) $c['hero']['hoogte'] ?>"
+           alt="De leiding van Chiro Halle in de kleuren van hun afdeling">
     </div>
     <svg class="hills" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
       <path class="hill-back" d="M0 70 C 180 10, 360 20, 540 60 S 880 95, 1040 40 S 1320 5, 1440 50 V200 H0 Z"/>
@@ -112,81 +119,41 @@
       </div>
 
       <div class="cards" id="afdeling-cards">
-        <article class="card g-speelclub" data-min="6" data-max="8">
-          <img src="assets/img/leiding-speelclub.webp" alt="De leiding van de Speelclub in gele T-shirts, met een knuffelkonijn" loading="lazy">
+<?php foreach ($c['afdelingen'] as $a):
+    $leiding = array_values(array_filter($a['leiding'], function ($l) { return trim($l['naam']) !== ''; })); ?>
+        <article class="card g-<?= e($a['key']) ?>" data-min="<?= (int) $a['min'] ?>" data-max="<?= (int) $a['max'] ?>">
+          <img src="<?= e($a['foto']) ?>" alt="De leiding van de <?= e($a['naam']) ?>" loading="lazy">
           <div class="card-body">
-            <h3>Speelclub</h3>
-            <p class="age">6 – 9 jaar</p>
-            <p>De jongste spelers. Veel spel, knutselen en verkleden, en elke zondag een nieuw avontuur.</p>
+            <h3><?= e($a['naam']) ?></h3>
+            <p class="age"><?= e($a['leeftijd']) ?></p>
+            <p><?= e($a['beschrijving']) ?></p>
+<?php if ($leiding): ?>
             <div class="leiding">
               <span class="label">Leiding</span>
-              <ul class="leiders"><li>Manu</li><li>Marie</li><li>Nolan</li><li>Catho</li></ul>
+              <ul class="leiders"><?php foreach ($leiding as $l): ?><li><?= e($l['naam']) ?></li><?php endforeach; ?></ul>
+<?php foreach ($leiding as $l): if (trim($l['quote'] ?? '') === '') continue; ?>
+              <blockquote class="quote"><p><?= e($l['quote']) ?></p><cite><?= e($l['naam']) ?></cite></blockquote>
+<?php endforeach; ?>
             </div>
+<?php endif; ?>
           </div>
         </article>
-        <article class="card g-rakwi" data-min="9" data-max="11">
-          <img src="assets/img/leiding-rakwi.webp" alt="De leiding van de Rakwi's in groene T-shirts" loading="lazy">
-          <div class="card-body">
-            <h3>Rakwi's</h3>
-            <p class="age">9 – 12 jaar</p>
-            <p>Ravotten in het bos, grote spelen en altijd klaar voor een uitdaging.</p>
-            <div class="leiding">
-              <span class="label">Leiding</span>
-              <ul class="leiders"><li>Toon</li><li>Febe</li><li>Léa</li><li>Lorenzo</li></ul>
-              <blockquote class="quote"><p>Ik denk dat ik al aan 25 zit, maar hoe meer hoe beter toch?</p><cite>Toon</cite></blockquote>
-            </div>
-          </div>
-        </article>
-        <article class="card g-tito" data-min="12" data-max="13">
-          <img src="assets/img/leiding-tito.webp" alt="De leiding van de Tito's in rode T-shirts" loading="lazy">
-          <div class="card-body">
-            <h3>Tito's</h3>
-            <p class="age">12 – 14 jaar</p>
-            <p>Meer zelf beslissen, grotere tochten en samen met je vrienden zotte plannen smeden.</p>
-            <div class="leiding">
-              <span class="label">Leiding</span>
-              <ul class="leiders"><li>Joren</li><li>Emma</li><li>Heri</li></ul>
-              <blockquote class="quote"><p>Ik denk dat hij zo zijn zwart geld wit wast.</p><cite>Joren</cite></blockquote>
-            </div>
-          </div>
-        </article>
-        <article class="card g-keti" data-min="14" data-max="15">
-          <img src="assets/img/leiding-keti.webp" alt="De leiding van de Keti's in blauwe T-shirts" loading="lazy">
-          <div class="card-body">
-            <h3>Keti's</h3>
-            <p class="age">14 – 16 jaar</p>
-            <p>Uitdagende activiteiten en weekends die je zelf mee op poten zet.</p>
-            <div class="leiding">
-              <span class="label">Leiding</span>
-              <ul class="leiders"><li>Joke</li><li>Mano</li><li>Rik</li></ul>
-            </div>
-          </div>
-        </article>
-        <article class="card g-aspi" data-min="16" data-max="17">
-          <img src="assets/img/leiding-aspi.webp" alt="De leiding van de Aspi's in oranje T-shirts" loading="lazy">
-          <div class="card-body">
-            <h3>Aspi's</h3>
-            <p class="age">16 – 18 jaar</p>
-            <p>De oudste leden. Eigen projecten en klaarstomen om zelf leiding te worden.</p>
-            <div class="leiding">
-              <span class="label">Leiding</span>
-              <ul class="leiders"><li>Warre</li><li>Jade</li></ul>
-            </div>
-          </div>
-        </article>
+<?php endforeach; ?>
       </div>
 
       <div class="groepsleiding">
-        <img src="assets/img/leiding-groepsleiding.webp" alt="De groepsleiding van Chiro Halle: Jade, Toon en Marie" loading="lazy">
+        <img src="<?= e($gl['foto']) ?>" alt="De groepsleiding van Chiro Halle: <?= e($glNamen) ?>" loading="lazy">
         <div>
           <p class="tag">Groepsleiding</p>
-          <h3>Toon, Jade &amp; Marie</h3>
+          <h3><?= e($glNamen) ?></h3>
           <p>Zij houden de hele Chiro draaiende en zijn je aanspreekpunt voor alle vragen.</p>
+<?php if ($glTel): ?>
           <ul class="phones">
-            <li><span>Toon</span><a href="tel:+32479105941">+32 479 10 59 41</a></li>
-            <li><span>Jade</span><a href="tel:+32456146725">+32 456 14 67 25</a></li>
-            <li><span>Marie</span><a href="tel:+32475434033">+32 475 43 40 33</a></li>
+<?php foreach ($glTel as $l): ?>
+            <li><span><?= e($l['naam']) ?></span><a href="<?= e(tel_href($l['telefoon'])) ?>"><?= e($l['telefoon']) ?></a></li>
+<?php endforeach; ?>
           </ul>
+<?php endif; ?>
         </div>
       </div>
     </div>
@@ -228,17 +195,12 @@
     </div>
 
     <div class="gallery" aria-label="Foto's van Chiro Halle">
-      <img src="assets/img/strand-groep.webp" alt="Een groep leden op het strand" loading="lazy">
-      <img src="assets/img/stapel.webp" alt="Leden liggen lachend op elkaar in het gras" loading="lazy">
-      <img src="assets/img/kabouters.webp" alt="Twee jongens met rode kabouterpuntmutsen" loading="lazy">
-      <img src="assets/img/kampvuur.webp" alt="Een groot kampvuur 's avonds" loading="lazy">
-      <img src="assets/img/lachen.webp" alt="Lachende kinderen met hoedjes" loading="lazy">
-      <img src="assets/img/rode-muts.webp" alt="Een jongen met een rode puntmuts en een groen T-shirt" loading="lazy">
-      <img src="assets/img/strand-trio.webp" alt="Drie leden op het strand" loading="lazy">
-      <img src="assets/img/kring.webp" alt="Kinderen zitten samen in het gras" loading="lazy">
+<?php foreach ($c['galerij'] as $g): ?>
+      <img src="<?= e($g['foto']) ?>" alt="<?= e($g['alt']) ?>" loading="lazy">
+<?php endforeach; ?>
     </div>
     <div class="wrap center">
-      <a href="https://www.instagram.com/chirohalle/" class="btn btn-dark" target="_blank" rel="noopener">Meer foto's op @chirohalle</a>
+      <a href="<?= e($c['contact']['instagram']) ?>" class="btn btn-dark" target="_blank" rel="noopener">Meer foto's op <?= e(instagram_handle($c['contact']['instagram'])) ?></a>
     </div>
   </section>
 
@@ -357,12 +319,14 @@
         <p>Voor algemene vragen mail je naar ons groepsadres of bel je de groepsleiding. Je kan de leiding ook gewoon aanspreken op zondag.</p>
       </div>
       <ul class="contact-list">
-        <li><span>Mail</span><a href="mailto:chirohallesjaloom@gmail.com">chirohallesjaloom@gmail.com</a></li>
-        <li><span>Toon</span><a href="tel:+32479105941">+32 479 10 59 41</a></li>
-        <li><span>Jade</span><a href="tel:+32456146725">+32 456 14 67 25</a></li>
-        <li><span>Marie</span><a href="tel:+32475434033">+32 475 43 40 33</a></li>
-        <li><span>Instagram</span><a href="https://www.instagram.com/chirohalle/" target="_blank" rel="noopener">@chirohalle</a></li>
-        <li><span>Facebook</span><a href="https://www.facebook.com/ChiroHalle/" target="_blank" rel="noopener">Chiro Halle</a></li>
+        <li><span>Mail</span><a href="mailto:<?= e($c['contact']['email']) ?>"><?= e($c['contact']['email']) ?></a></li>
+<?php foreach ($glTel as $l): ?>
+        <li><span><?= e($l['naam']) ?></span><a href="<?= e(tel_href($l['telefoon'])) ?>"><?= e($l['telefoon']) ?></a></li>
+<?php endforeach; ?>
+        <li><span>Instagram</span><a href="<?= e($c['contact']['instagram']) ?>" target="_blank" rel="noopener"><?= e(instagram_handle($c['contact']['instagram'])) ?></a></li>
+<?php if (trim($c['contact']['facebook']) !== ''): ?>
+        <li><span>Facebook</span><a href="<?= e($c['contact']['facebook']) ?>" target="_blank" rel="noopener">Chiro Halle</a></li>
+<?php endif; ?>
         <li><span>Lokalen</span>Jeugdcentrum Stroppen, Guido Gezellestraat, 1500 Halle</li>
       </ul>
     </div>
