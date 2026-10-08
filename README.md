@@ -4,16 +4,20 @@ Nieuwe statische website voor [chirohalle.be](https://chirohalle.be). Geen build
 
 ```
 index.html
-assets/css/style.css
-assets/js/main.js
-assets/img/              foto's (webp)
+assets/css/style.css     stijl (kleuren uit het Instagram-logo en de afdelingshighlights)
+assets/js/main.js        menu en geboortejaarzoeker
+assets/img/              logo, leidingsfoto's en sfeerfoto's (webp)
 assets/docs/             geneeskundig getuigschrift (verzekering)
 ```
 
-Inschrijvingen, betalingen en de kalender lopen via [Twizzit](https://app.twizzit.com/).
+Inschrijven en betalen lopen via het [Twizzit-formulier](https://app.twizzit.com/v2/form/VlhWQUFUMXZKdU9ibWZyT3hXUkVYUT09).
+
+## Jaarlijks bijwerken
+
+- Leiding per afdeling en groepsleiding (namen, foto's in `assets/img/leiding-*.webp`, gsm-nummers)
+- Lidgeld en vieruurtje
+- Kampdata (nu: 21–31 juli)
 
 ## Nog na te kijken
 
-- **Kamp**: de oude site vermeldde zowel 21–31 juli als 21–31 augustus. De nieuwe site toont geen data; vul ze aan zodra ze vastliggen.
-- **Inclusie**: de oude site gaf het gsm-nummer van Camille (leiding) als contact. De nieuwe site verwijst naar het groepsmailadres; voeg een contactpersoon toe als dat gewenst is.
-- **Aspi's**: kleur, foto en leiding ontbreken nog (de kaart staat voorlopig in het oranje).
+- **Verhuur**: de opsomming (2 slaap- en 2 daglokalen, keuken/refter, sanitair, max. 30 personen, groot terrein) komt van een externe verhuurlijst (Kampas). Laat vzw Lok'Halle ze even bevestigen.
