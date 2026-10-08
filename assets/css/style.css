@@ -361,3 +361,12 @@ p { margin: 0 0 1em; }
   .event-day { font-size: 1.5rem; }
 }
 .binnenkort .event-desc { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; white-space: normal; }
+.event-regular { padding: 10px 20px; grid-template-columns: 72px 1fr; align-items: center; background: transparent; border-style: dashed; }
+.event-regular .event-date { aspect-ratio: auto; padding: 8px 0; background: var(--bg-tint); color: var(--ink); }
+.event-regular .event-day { font-size: 1.3rem; }
+.event-regular .event-month { font-size: .75rem; }
+.event-regular .event-title { font-size: 1.05rem; font-weight: 600; }
+.event-regular .event-location { display: none; }
+.event-special { border: 2px solid transparent; background: linear-gradient(var(--card), var(--card)) padding-box, var(--brand-gradient) border-box; }
+.event-special .event-title { font-size: 1.4rem; }
+@media (max-width: 480px) { .event-regular { grid-template-columns: 56px 1fr; padding: 8px 14px; } }
