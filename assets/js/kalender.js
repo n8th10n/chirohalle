@@ -103,11 +103,15 @@
   // Gewone zondagen tonen we compact, zodat speciale activiteiten opvallen.
   const isRegular = (ev) => /^chirozondag$/i.test((ev.title || '').trim());
 
-  function eventItem(ev) {
+  function eventItem(ev, isNext) {
     const li = el('li', isRegular(ev) ? 'event event-regular' : 'event event-special');
     const badge = el('div', 'event-date');
     badge.append(el('span', 'event-day', fDay.format(ev.start)), el('span', 'event-month', fMonthShort.format(ev.start).replace('.', '')));
     const body = el('div', 'event-body');
+    if (isNext) {
+      const today = sameDay(ev.start, new Date()) || (ev.start <= new Date());
+      body.append(el('span', 'event-next', today ? 'Vandaag' : 'Eerstvolgende'));
+    }
     body.append(el('p', 'event-weekday', `${fWeekday.format(ev.start)} · ${whenText(ev)}`));
     body.append(el('h3', 'event-title', ev.title || 'Activiteit'));
     if (ev.location) body.append(el('p', 'event-location', ev.location));
@@ -138,7 +142,7 @@
     }
     if (limit) {
       const ul = el('ul', 'events');
-      list.forEach((e) => ul.append(eventItem(e)));
+      list.forEach((e) => ul.append(eventItem(e, e === upcoming[0])));
       root.append(ul);
       return;
     }
@@ -151,7 +155,7 @@
         ul = el('ul', 'events');
         root.append(ul);
       }
-      ul.append(eventItem(e));
+      ul.append(eventItem(e, e === upcoming[0]));
     }
   }
 
