@@ -155,26 +155,20 @@
     }
   }
 
-  const TWIZZIT_ICAL = 'https://static.twizzit.com/v2/activity/export/ical?c=QTVKOGtkejEwT0d1OWp2cUNlUmsrUT09&o=TmxRUnFMU0JIdVRycU1CNklpY3dYZz09&f=eyJjIjoxMjM3NjY0MSwiZyI6bnVsbCwiciI6W10sImdjIjpbXSwiYXQiOlsiMSIsIjIiLCIzIiwiNCIsIjUiXSwiYXN0IjpbXX0=';
-
-  // Eerst via onze eigen server (kalender.php), anders rechtstreeks bij Twizzit.
+  // Via onze eigen server (kalender.php): Twizzit laat browsers niet rechtstreeks meelezen.
   // Een antwoord telt alleen als het echt een kalender is: als PHP niet draait,
   // krijgen we de PHP-broncode terug in plaats van de kalender.
-  async function loadIcs(sources) {
-    for (const src of sources) {
-      try {
-        const res = await fetch(src, { cache: 'no-cache' });
-        if (!res.ok) continue;
-        const text = await res.text();
-        if (/^\uFEFF?\s*BEGIN:VCALENDAR/.test(text)) return text;
-      } catch (err) { /* volgende bron proberen */ }
-    }
-    throw new Error('Kalender niet beschikbaar');
+  async function loadIcs(src) {
+    const res = await fetch(src);
+    if (!res.ok) throw new Error(res.status);
+    const text = await res.text();
+    if (!/^\uFEFF?\s*BEGIN:VCALENDAR/.test(text)) throw new Error('Geen kalender');
+    return text;
   }
 
   document.querySelectorAll('[data-kalender]').forEach(async (root) => {
     try {
-      render(root, parseIcs(await loadIcs([root.dataset.src || 'kalender.php', TWIZZIT_ICAL])));
+      render(root, parseIcs(await loadIcs(root.dataset.src || 'kalender.php')));
     } catch (err) {
       root.replaceChildren(el('p', 'kalender-empty', 'De kalender kon niet geladen worden. Probeer later opnieuw of zet de kalender in je eigen agenda via de knoppen op de kalenderpagina.'));
     }

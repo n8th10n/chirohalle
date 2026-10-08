@@ -5,7 +5,8 @@ Nieuwe statische website voor [chirohalle.be](https://chirohalle.be). Geen build
 ```
 index.html               startpagina
 kalender.html            volledige kalender
-kalender.php             haalt de Twizzit-kalender op (iCal) en bewaart hem 15 minuten
+kalender.php             haalt de Twizzit-kalender op (iCal) en bewaart hem 12 uur
+kalender-backup.ics      reservekopie, getoond zolang Twizzit nog niets teruggaf
 assets/css/style.css     stijl (kleuren uit het Instagram-logo en de afdelingshighlights)
 assets/js/main.js        menu en geboortejaarzoeker
 assets/js/kalender.js    leest de kalender in en toont de komende activiteiten
@@ -13,7 +14,9 @@ assets/img/              logo, leidingsfoto's en sfeerfoto's (webp)
 assets/docs/             geneeskundig getuigschrift (verzekering)
 ```
 
-De kalender heeft PHP nodig op de webhost (Combell heeft dat standaard). Lokaal, zonder PHP, toont de site "De kalender kon niet geladen worden".
+De kalender heeft PHP nodig op de webhost. Lokaal, zonder PHP, toont de site "De kalender kon niet geladen worden".
+
+Twizzit laat de kalender maar om de 12 uur ophalen (wie vaker vraagt, wordt tijdelijk geblokkeerd). `kalender.php` houdt daar rekening mee. Wijzigingen in Twizzit verschijnen dus binnen 12 uur op de site. Wil je weten wat de server ziet, open dan `kalender.php?test` (niet herhaaldelijk: elke test telt als een poging bij Twizzit).
 
 Inschrijven en betalen lopen via het [Twizzit-formulier](https://app.twizzit.com/v2/form/VlhWQUFUMXZKdU9ibWZyT3hXUkVYUT09).
 
