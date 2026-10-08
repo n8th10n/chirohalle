@@ -376,13 +376,13 @@ function photo_input($name, $current, $hint, $png = false) { ?>
     <section class="panel" id="s-hero">
       <h2>Groepsfoto bovenaan</h2>
       <div class="hero-field">
-        <?php photo_input('hero_foto', $c['hero']['foto'], '<strong>Moet een uitgesneden PNG zijn</strong>: de mensen zonder achtergrond (transparant), zodat het kleurverloop erachter zichtbaar blijft. Uitsnijden kan gratis met bv. <a href="https://www.remove.bg/nl" target="_blank" rel="noopener">remove.bg</a> of op een iPhone door lang op het onderwerp in een foto te drukken. Gewone foto\'s worden geweigerd. Onderaan staan grasheuvels voor de benen.', true); ?>
+        <?php photo_input('hero_foto', $c['hero']['foto'], '<strong>Moet een uitgesneden PNG zijn</strong>: de mensen zonder achtergrond (transparant), zodat het kleurverloop erachter zichtbaar blijft. Uitsnijden kan gratis met bv. <a href="https://www.remove.bg/nl" target="_blank" rel="noopener">remove.bg</a> of op een iPhone door lang op het onderwerp in een foto te drukken. Gewone foto\'s worden geweigerd. Op de site wordt de foto onderaan afgesneden (ongeveer ter hoogte van de knieën). Gebruik een zo groot mogelijke foto, minstens 2000 pixels breed.', true); ?>
       </div>
     </section>
 
     <div class="savebar">
       <button class="btn" name="action" value="save">Opslaan</button>
-      <span class="hint">Nieuwe foto's worden automatisch verkleind voor ze geüpload worden.</span>
+      <span class="hint">Upload gerust het origineel: grote foto's worden automatisch verkleind, scherp genoeg voor retinaschermen.</span>
     </div>
   </form>
 

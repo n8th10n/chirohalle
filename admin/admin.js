@@ -48,8 +48,10 @@
   });
 
   // ---- Foto's ----
-  const MAX_SIDE = 1600;
-  const MAX_SIDE_PNG = 2200;
+  // Groot genoeg voor scherpe foto's op retinaschermen.
+  const MAX_SIDE = 2400;
+  const MAX_SIDE_PNG = 2800;
+  const QUALITY = 0.9;
 
   function loadImage(file) {
     return new Promise((resolve, reject) => {
@@ -93,12 +95,19 @@
         return;
       }
 
-      const type = isPng ? 'image/png' : 'image/jpeg';
-      const blob = await new Promise((r) => canvas.toBlob(r, type, 0.85));
-      if (blob && blob.size < file.size) {
-        const name = file.name.replace(/\.[^.]+$/, '') + (isPng ? '.png' : '.jpg');
+      // WebP als de browser dat kan (scherper bij dezelfde grootte), anders JPG.
+      let blob;
+      if (isPng) {
+        blob = await new Promise((r) => canvas.toBlob(r, 'image/png'));
+      } else {
+        blob = await new Promise((r) => canvas.toBlob(r, 'image/webp', QUALITY));
+        if (!blob || blob.type !== 'image/webp') blob = await new Promise((r) => canvas.toBlob(r, 'image/jpeg', QUALITY));
+      }
+      if (blob && (blob.size < file.size || scale < 1)) {
+        const ext = { 'image/png': '.png', 'image/webp': '.webp', 'image/jpeg': '.jpg' }[blob.type] || '.jpg';
+        const name = file.name.replace(/\.[^.]+$/, '') + ext;
         const dt = new DataTransfer();
-        dt.items.add(new File([blob], name, { type }));
+        dt.items.add(new File([blob], name, { type: blob.type }));
         input.files = dt.files;
       }
       preview.src = URL.createObjectURL(input.files[0]);

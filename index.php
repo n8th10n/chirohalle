@@ -76,13 +76,9 @@ $glTel = array_values(array_filter($gl['leden'], function ($l) { return trim($l[
     </div>
     <div class="hero-photo">
       <img src="<?= e($c['hero']['foto']) ?>" width="<?= (int) $c['hero']['breedte'] ?>" height="<?= (int) $c['hero']['hoogte'] ?>"
+           style="aspect-ratio: <?= (int) $c['hero']['breedte'] ?> / <?= round($c['hero']['hoogte'] * 0.72) ?>"
            alt="De leiding van Chiro Halle in de kleuren van hun afdeling">
     </div>
-    <svg class="hills" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
-      <path class="hill-back" d="M0 70 C 180 10, 360 20, 540 60 S 880 95, 1040 40 S 1320 5, 1440 50 V200 H0 Z"/>
-      <path class="hill-mid" d="M0 110 C 200 55, 400 60, 580 95 S 920 130, 1110 80 S 1350 70, 1440 95 V200 H0 Z"/>
-      <path class="hill-front" d="M0 150 C 240 110, 520 120, 760 145 S 1180 120, 1440 140 V200 H0 Z"/>
-    </svg>
   </section>
 
   <!-- WIE ZIJN WE -->

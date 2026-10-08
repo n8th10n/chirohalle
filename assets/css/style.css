@@ -132,7 +132,8 @@ p { margin: 0 0 1em; }
 .lead { font-size: 1.2rem; max-width: 34em; margin: 0 auto; font-weight: 600; opacity: .95; }
 .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 1.75rem; }
 .hero-photo { max-width: 1280px; margin: clamp(24px, 4vw, 48px) auto 0; padding: 0 16px; }
-.hero-photo img { width: 100%; margin-bottom: -2px; }
+/* Onderste 28% van de foto (onder de knieën) valt weg, ook bij een nieuwe upload. */
+.hero-photo img { width: 100%; height: auto; object-fit: cover; object-position: top; margin-bottom: -2px; }
 
 /* "!!"-streepjes uit het logo */
 .burst { position: absolute; top: 50%; width: 1.2em; height: 1.4em; pointer-events: none; }
@@ -399,7 +400,7 @@ p { margin: 0 0 1em; }
 @media (max-width: 480px) { .legal td:last-child { white-space: normal; } }
 .legal a[href^="tel:"] { white-space: nowrap; overflow-wrap: normal; }
 
-/* Hero: wolkjes en grasheuvels */
+/* Hero: wolkjes */
 .hero .hero-inner, .hero .hero-photo { position: relative; z-index: 1; }
 .clouds { position: absolute; inset: 0 0 auto 0; height: 70%; pointer-events: none; z-index: 0; overflow: hidden; }
 .cloud { position: absolute; left: 0; fill: #fff; animation: cloud-drift linear infinite; }
@@ -411,11 +412,4 @@ p { margin: 0 0 1em; }
   from { transform: translateX(-240px); }
   to   { transform: translateX(calc(100vw + 40px)); }
 }
-.hills {
-  position: absolute; left: 0; bottom: -1px; width: 100%; z-index: 2;
-  height: clamp(70px, 17vw, 250px); display: block;
-}
-.hill-back  { fill: #8fd16f; }
-.hill-mid   { fill: #5bb84f; }
-.hill-front { fill: #3e9a43; }
 @media (prefers-reduced-motion: reduce) { .cloud { animation: none; } .cloud-1 { transform: translateX(8vw); } .cloud-2 { transform: translateX(70vw); } .cloud-3 { transform: translateX(40vw); } .cloud-4 { transform: translateX(85vw); } }
