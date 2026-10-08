@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalender · Chiro Halle</title>
+  <meta name="description" content="Alle komende activiteiten van Chiro Halle: zondagen, uitstappen, weekends en kamp.">
+  <meta property="og:title" content="Kalender · Chiro Halle">
+  <meta property="og:image" content="assets/img/logo.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo" aria-label="Chiro Halle, naar de startpagina">
+      <img src="assets/img/logo.webp" alt="" width="44" height="44">
+      <span>Chiro Halle</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav" class="nav">
+      <a href="index.html#afdelingen">Afdelingen</a>
+      <a href="index.html#activiteiten">Activiteiten</a>
+      <a href="kalender.html" aria-current="page">Kalender</a>
+      <a href="index.html#praktisch">Praktisch</a>
+      <a href="index.html#kleding">Kleding</a>
+      <a href="index.html#verhuur">Verhuur</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://app.twizzit.com/v2/form/VlhWQUFUMXZKdU9ibWZyT3hXUkVYUT09" class="btn btn-small" target="_blank" rel="noopener">Inschrijven</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="tag">Kalender</p>
+      <h1>Wat staat er op de planning?</h1>
+      <p class="lead">Alle komende zondagen, uitstappen, weekends en het kamp. Zet de kalender in je eigen agenda, dan mis je nooit iets.</p>
+      <div class="hero-cta">
+        <a class="btn btn-white" href="webcal://static.twizzit.com/v2/activity/export/ical?c=QTVKOGtkejEwT0d1OWp2cUNlUmsrUT09&amp;o=TmxRUnFMU0JIdVRycU1CNklpY3dYZz09&amp;f=eyJjIjoxMjM3NjY0MSwiZyI6bnVsbCwiciI6W10sImdjIjpbXSwiYXQiOlsiMSIsIjIiLCIzIiwiNCIsIjUiXSwiYXN0IjpbXX0=">Toevoegen aan Apple / Outlook</a>
+        <a class="btn btn-outline" href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fstatic.twizzit.com%2Fv2%2Factivity%2Fexport%2Fical%3Fc%3DQTVKOGtkejEwT0d1OWp2cUNlUmsrUT09%26o%3DTmxRUnFMU0JIdVRycU1CNklpY3dYZz09%26f%3DeyJjIjoxMjM3NjY0MSwiZyI6bnVsbCwiciI6W10sImdjIjpbXSwiYXQiOlsiMSIsIjIiLCIzIiwiNCIsIjUiXSwiYXN0IjpbXX0%3D" target="_blank" rel="noopener">Toevoegen aan Google Agenda</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap kalender-full" data-kalender data-src="kalender.php">
+      <p class="kalender-empty">Kalender laden…</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© <span id="year"></span> Chiro Halle · Lid van <a href="https://chiro.be" target="_blank" rel="noopener">Chirojeugd Vlaanderen</a> · Website door Nathan Mertens</p>
+    <a href="#top">Naar boven ↑</a>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/kalender.js"></script>
+</body>
+</html>

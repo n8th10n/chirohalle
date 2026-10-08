@@ -29,6 +29,7 @@
     <nav id="nav" class="nav">
       <a href="#afdelingen">Afdelingen</a>
       <a href="#activiteiten">Activiteiten</a>
+      <a href="kalender.html">Kalender</a>
       <a href="#praktisch">Praktisch</a>
       <a href="#kleding">Kleding</a>
       <a href="#verhuur">Verhuur</a>
@@ -202,6 +203,16 @@
       </div>
     </div>
 
+    <div class="wrap binnenkort">
+      <div class="binnenkort-head">
+        <h3>Binnenkort op de Chiro</h3>
+        <a href="kalender.html" class="btn btn-small">Volledige kalender →</a>
+      </div>
+      <div data-kalender data-src="kalender.php" data-limit="3">
+        <p class="kalender-empty">Kalender laden…</p>
+      </div>
+    </div>
+
     <div class="gallery" aria-label="Foto's van Chiro Halle">
       <img src="assets/img/strand-groep.webp" alt="Een groep leden op het strand" loading="lazy">
       <img src="assets/img/stapel.webp" alt="Leden liggen lachend op elkaar in het gras" loading="lazy">
@@ -353,5 +364,6 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/kalender.js"></script>
 </body>
 </html>
