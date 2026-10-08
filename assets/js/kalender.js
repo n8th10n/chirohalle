@@ -100,11 +100,8 @@
     return n;
   }
 
-  // Gewone zondagen tonen we compact, zodat speciale activiteiten opvallen.
-  const isRegular = (ev) => /^chirozondag$/i.test((ev.title || '').trim());
-
   function eventItem(ev, isNext) {
-    const li = el('li', isRegular(ev) ? 'event event-regular' : 'event event-special');
+    const li = el('li', 'event');
     const badge = el('div', 'event-date');
     badge.append(el('span', 'event-day', fDay.format(ev.start)), el('span', 'event-month', fMonthShort.format(ev.start).replace('.', '')));
     const body = el('div', 'event-body');
@@ -126,14 +123,7 @@
     const upcoming = events
       .filter((e) => (e.end || e.start) >= now || sameDay(e.start, now))
       .sort((a, b) => a.start - b.start);
-    // Startpagina: de eerstvolgende zondag plus de eerstvolgende speciale activiteiten.
-    let list = upcoming;
-    if (limit) {
-      const nextSunday = upcoming.find(isRegular);
-      const specials = upcoming.filter((e) => !isRegular(e)).slice(0, nextSunday ? limit - 1 : limit);
-      list = (nextSunday ? [nextSunday, ...specials] : specials).sort((a, b) => a.start - b.start);
-      if (list.length < limit) list = upcoming.slice(0, limit);
-    }
+    const list = limit ? upcoming.slice(0, limit) : upcoming;
     root.replaceChildren();
 
     if (!list.length) {
